@@ -32,7 +32,6 @@ ENV PUBLIC_PATH "/"
 
 RUN npm run start:build
 
-USER root
 
 # Main command
 CMD [ "npm", "run", "start:server" ]

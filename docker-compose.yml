@@ -7,7 +7,6 @@ services:
     container_name: jenkins
     privileged: true
     restart: always
-    user: root
     ports:
       - "8080:8080"
     volumes:

@@ -19,4 +19,4 @@ services:
     container_name: registry
     restart: always
     ports:
-      - "5001:5001"
+      - "5001:5000"

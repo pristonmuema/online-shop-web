@@ -29,7 +29,8 @@ pipeline {
         steps {
           script {
             if(env.BRANCH_NAME == 'master'){
-              sh 'docker push online-shop-web'
+              sh 'docker tag online-shop-web localhost:5001/online-shop-web'
+              sh 'docker push localhost:5001/online-shop-web'
             }
           }
         }

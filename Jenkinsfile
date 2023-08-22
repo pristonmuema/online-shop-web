@@ -2,7 +2,9 @@ pipeline {
   agent any
     stages {
       stage('Checkout') {
-        checkout scm
+        steps {
+          checkout scm
+        }
       }
       stage('Environment') {
         steps {
@@ -14,7 +16,9 @@ pipeline {
       }
 
       stage('Docker test'){
-        sh 'docker run --rm react-test'
+        steps {
+          sh 'docker run --rm react-test'
+        }
       }
 
       stage('Build') {

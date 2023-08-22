@@ -9,21 +9,21 @@ node {
       sh 'docker -v'
       sh 'printenv'
     }
-    stage('Build Docker test'){
-     sh 'docker build -t react-test -f Dockerfile.test --no-cache .'
-    }
     stage('Docker test'){
       sh 'docker run --rm react-test'
     }
     stage('Clean Docker test'){
       sh 'docker rmi react-test'
     }
-    stage('Deploy'){
+    stage('Build'){
       if(env.BRANCH_NAME == 'master'){
         sh 'docker build -t online-shop-web--no-cache .'
+      }
+    }
+    stage('Deploy'){
+      if(env.BRANCH_NAME == 'master'){
         sh 'docker tag online-shop-web localhost:5000/online-shop-web'
         sh 'docker push localhost:5000/online-shop-web'
-        sh 'docker rmi -f online-shop-web localhost:5000/online-shop-web'
       }
     }
   }

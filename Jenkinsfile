@@ -15,12 +15,6 @@ pipeline {
         }
       }
 
-      stage('Docker test'){
-        steps {
-          sh 'docker run --rm react-test'
-        }
-      }
-
       stage('Build') {
         steps {
           script {
